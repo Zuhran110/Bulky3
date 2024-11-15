@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Category>
+
+@{
+    ViewData["Title"] = "Categories Index";
+}
+
+<partial name="_Notification" />
+
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <h2 class="text-dark">Categories</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            <a asp-controller="Categories" asp-action="Create" class="btn btn-primary btn-lg">
+                <i class="bi bi-file-plus"></i> Create New
+            </a>
+        </div>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark text-light">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+                <th>@Html.DisplayNameFor(model => model.First().DisplayOrder)</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DisplayOrder)</td>
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm me-2" title="Edit">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm me-2" title="Details">
+                            <i class="bi bi-info-circle"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm" title="Delete">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

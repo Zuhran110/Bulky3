@@ -1,0 +1,35 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "Category Details";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-warning text-white">
+            <h1 class="mb-0">Category Details</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="mb-4">Category</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.DisplayOrder)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.DisplayOrder)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
