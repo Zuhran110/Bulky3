@@ -15,6 +15,15 @@ namespace Bulky.Models
 
         [DisplayName("Display Order")]
         [Range(1, 255)]
-        public string DisplayOrder { get; set; }
+        public int DisplayOrder { get; set; }
+        
+        [DisplayName("Created Date")]
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        
+        [DisplayName("Is Active")]
+        public bool IsActive { get; set; } = true;
+        
+        // Navigation property
+        public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 }
